@@ -1,4 +1,4 @@
-# 🖼️ Cartoonify Image using OpenCV
+# Cartoonify Image using OpenCV
 
 This project is an **image processing application** that transforms standard photos into **cartoon-style images** using computer vision techniques.  
 
@@ -6,7 +6,7 @@ It provides a complete workflow for selecting an image, applying cartoonificatio
 
 ---
 
-## 🚀 Features
+## Features
 - Converts normal photos into cartoon-style images.
 - Applies key image processing techniques:
   - **Grayscale conversion**
@@ -18,7 +18,7 @@ It provides a complete workflow for selecting an image, applying cartoonificatio
 
 ---
 
-## 🛠️ Technologies Used
+## Technologies Used
 - **Python**
 - **OpenCV (cv2)** – image processing
 - **NumPy (numpy)** – numerical operations
@@ -29,7 +29,7 @@ It provides a complete workflow for selecting an image, applying cartoonificatio
 
 ---
 
-## 📖 How It Works
+## How It Works
 1. Upload/select an image.
 2. Convert the image to **grayscale**.
 3. Apply **median blur** for smoothing.
@@ -40,7 +40,7 @@ It provides a complete workflow for selecting an image, applying cartoonificatio
 
 ---
 
-## ▶️ Usage
+## Usage
 ### Run in **Google Colab**
 1. Open the project notebook in Google Colab.
 2. Upload an image using `google.colab.files`.
