@@ -52,3 +52,12 @@ It provides a complete workflow for selecting an image, applying cartoonificatio
    ```bash
    git clone https://github.com/your-username/cartoonify-image.git
    cd cartoonify-image
+
+## 📷 Screenshots
+
+### Output Image
+![Original](assets/output.png)
+
+### Cartoonified Image
+![Cartoon](assets/cartoonified_Image.png)
+
