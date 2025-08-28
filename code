@@ -1,0 +1,54 @@
+from google.colab import files
+import io
+import cv2 #for image processing
+import easygui #to open the filebox
+import numpy as np #to store image
+import imageio #to read image stored at particular path
+import sys
+import matplotlib.pyplot as plt
+import os
+# import tkinter as tk
+# from tkinter import filedialog
+# from tkinter import *
+from PIL import ImageTk, Image
+
+""" fileopenbox opens the box to choose file
+and help us store file path as string """
+def upload():
+    uploaded = files.upload()
+    if not uploaded:
+        print("No file uploaded.")
+        return
+
+    # Assuming only one file is uploaded
+    ImagePath = list(uploaded.keys())[0]
+    
+    # Read image from bytes
+    image_bytes = uploaded[ImagePath]
+    originalmage = cv2.imdecode(np.frombuffer(image_bytes, np.uint8), cv2.IMREAD_COLOR)
+
+
+    originalmage = cv2.cvtColor(originalmage, cv2.COLOR_BGR2RGB)
+    # print(image)  # image is stored in form of numbers
+
+    # confirm that image is chosen
+    if originalmage is None:
+        print("Can not find any image. Choose appropriate file")
+        return # Use return instead of sys.exit() in Colab
+
+    ReSized1 = cv2.resize(originalmage, (960, 540))
+    # plt.imshow(ReSized1, cmap='gray')
+
+    # Get the processed images from cartoonify
+    ReSized2, ReSized3, ReSized4, ReSized5, ReSized6, cartoonImage = cartoonify(originalmage)
+
+    # Plotting the whole transition
+    images=[ReSized1, ReSized2, ReSized3, ReSized4, ReSized5, ReSized6]
+    fig, axes = plt.subplots(3,2, figsize=(8,8), subplot_kw={'xticks':[], 'yticks':[]}, gridspec_kw=dict(hspace=0.1, wspace=0.1))
+    for i, ax in enumerate(axes.flat):
+        ax.imshow(images[i], cmap='gray')
+    #save button code
+    plt.show()
+
+    # Call the save function after displaying the image
+    save(cartoonImage, ImagePath)
