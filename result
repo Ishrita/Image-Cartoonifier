@@ -1,0 +1,13 @@
+def save(ReSized6, ImagePath):
+    #saving an image using imwrite()
+    newName="cartoonified_Image"
+    path1 = os.path.dirname(ImagePath)
+    # Change the extension to .png
+    extension=".png"
+    path = os.path.join(path1, newName+extension)
+    cv2.imwrite(path, cv2.cvtColor(ReSized6, cv2.COLOR_RGB2BGR))
+    I = "Image saved by name " + newName +" at "+ path
+    print(I) # Use print instead of tkinter messagebox
+
+#call upload function to upload image
+upload()
